@@ -63,6 +63,8 @@ Self-hosting Whisper cuts what would otherwise be ~$15/day at this volume.
 **Mini PC** — FastAPI service: `/transcribe` (faster-whisper) and `/embed` (BGE-M3). Accessed over Cloudflare Tunnel with shared-secret auth.  
 **Yandex Object Storage** — S3-compatible. Raw audio, enhanced audio, generated covers.
 
+[Audio Processing Pipeline](./Audio-Processing-Pipeline.jpg)
+
 ### Pipeline Steps
 
 **1. Download** — Stream audio to Yandex S3, create MongoDB story record, extract technical metadata via ffprobe.
