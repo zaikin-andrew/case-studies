@@ -88,7 +88,7 @@ Designed source-agnostic from day one. The ingestion layer accepts a `{source, v
 
 The diagram below shows the full pipeline:
 
-![AWS Architecture Diagram](./Video Pipeline.jpg)
+![AWS Architecture Diagram](./Video_Pipeline.jpg)
 
 ### Flow Description
 
@@ -128,7 +128,7 @@ The existing analytics backend queries PostgreSQL for dashboard construction. Qd
 - **UI/frontend** — assumed to live within the client's existing product; API contract to be defined separately
 - **Source integration layer** (yt-dlp proxy rotation, ToS risk management) — operational concern, not architectural
 - **Agent-based dashboard generation** — noted as a future option; adds complexity not justified at PoC stage
-- **Full Appmagic data integration** — the pipeline is designed to run standalone; integration points (shared game catalog, correlated revenue data) are a Phase 2 concern
+- **Full data integration** — the pipeline is designed to run standalone; integration points (shared game catalog, correlated revenue data) are a Phase 2 concern
 
 ---
 
@@ -137,3 +137,4 @@ The existing analytics backend queries PostgreSQL for dashboard construction. Qd
 The architecture delivers a fully async, cost-controlled pipeline for video-to-mechanics intelligence. At ~$100/month for 300 videos/day processing, the unit economics are viable for a PoC to production path. The system is designed for progressive enhancement: swap hosted Whisper for Transcribe, add new video sources, extend taxonomy, or plug in an agentic query layer — without rearchitecting the core pipeline.
 
 The key architectural decisions — Fargate Spot for preprocessing, Bedrock Batch for inference, Qdrant for pre-inference deduplication, source-agnostic task envelope — directly address the client's constraints: cost predictability, data quality, and extensibility.
+
