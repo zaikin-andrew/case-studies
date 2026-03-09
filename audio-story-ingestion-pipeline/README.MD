@@ -96,11 +96,9 @@ Each processor records `startedAt`, `completedAt`, `durationMs`, and `error` per
 - **Batch Overview** — progress bar (queued / processing / ready / failed), average step durations, queue depth per step. Polled every 10s.
 - **Story List** — paginated table with a 7-cell step status strip per row (green / yellow / red). Expandable step timeline with error details. **Retry** button re-enqueues from the failed step only.
 
-**NestJS endpoints:** `GET /admin/pipeline/stats`, `GET /admin/pipeline/stories`, `POST /admin/pipeline/retry/:storyId`.
+**NestJS endpoint:** `GET /API/v1/jobs`.
 
 **Telegram watchdog** (cron every 5 min): alerts on stalled stories (`processing` + `updatedAt` > 20 min) and failure spikes (>3 failed in 30 min).
-
-Bull Board at `/admin/queues` for raw queue inspection alongside the Angular UI.
 
 ---
 
